@@ -1,0 +1,20 @@
+{
+  "name": "spotify-playing-now-readme",
+  "license": "MIT",
+  "dependencies": {
+    "isomorphic-unfetch": "^3.1.0",
+    "preact": "^10.5.12",
+    "preact-render-to-string": "^5.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.25",
+    "@types/spotify-api": "^0.0.7",
+    "@vercel/node": "^1.9.0",
+    "prettier": "^2.2.1",
+    "vercel": "^21.2.3"
+  },
+  "prettier": {
+    "useTabs": true,
+    "tabWidth": 2
+  }
+}
