@@ -12,7 +12,7 @@ If you want to share your love to music with the world you are in right place. Y
 - Click **Create An App**
 - Fill the name and description of new app and click **Create**.
 - Click **Show Client Secret**.
-– Copy **Client ID** and **Client Secret** we will need it a bit later.
+- Copy **Client ID** and **Client Secret** we will need it a bit later.
 
 #### Deploy an application to Vercel
 
