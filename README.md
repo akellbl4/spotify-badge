@@ -20,8 +20,8 @@ If you want to share your love to music with the world you are in right place. Y
 - Click **Continue** on **Clone Git Repository** screen
 - Choose where you want to save code on **Create Git Repository** and Vercel will fork this repo automatically
 – Click **Continue** on **Import Project** screen
-– Put **Client ID** to `SPOTIFY_CLIENT_ID` and **Client Secret** to `SPOTIFY_CLIENT_SECRET` and put just `-` to `SPOTIFY_REFRESH_TOKEN`
-– Click **Deploy**
+– Put **Client ID** to `SPOTIFY_CLIENT_ID` and **Client Secret** to `SPOTIFY_CLIENT_SECRET` and put just `-` to `SPOTIFY_REFRESH_TOKEN`. 
+- Click **Deploy**
 
 #### Get Refresh Token
 
