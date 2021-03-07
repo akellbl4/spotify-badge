@@ -8,7 +8,7 @@ import RefreshToken from "../components/RefreshToken";
 
 const { VERCEL_URL } = process.env;
 
-const REDIRECT_URI = `http://${VERCEL_URL}/api/auth`;
+const REDIRECT_URI = `https://${VERCEL_URL}/api/auth`;
 
 export default async function spotifyAuth(req: NowRequest, res: NowResponse) {
 	if (!req.query.code) {
