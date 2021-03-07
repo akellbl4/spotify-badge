@@ -7,7 +7,7 @@ If you want to share your love to music with the world you are in right place. Y
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fakellbl4%2Fspotify-playing-now-readme&env=SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,VERCEL_URL&envDescription=Spotify%20credentials%20should%20be%20provided.&envLink=https%3A%2F%2Fgithub.com%2Fakellbl4%2Fspotify-playing-now-readme%2Fblob%2Fmain%2FREADME.md&project-name=spotify-playing-now-readme)
 
 ### How to use
-#### Create an Spotify application for authontification
+#### Create an Spotify application for authentication
 - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and log in with your Spotify account
 - Click **Create An App**
 - Fill the name and description of new app and click **Create**.
@@ -26,14 +26,14 @@ If you want to share your love to music with the world you are in right place. Y
 #### Get Refresh Token
 
 - When application is deployed go to **Dashboard**
-- Copy your domain of your application
+- Copy your domain with `prod` label of your application
 - Go back to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) 
 - Open application
 - Click to **Edit Settings**
-- Add path to auth page `/api/auth`. It should looks like this `spotify-playing-now-readme.akellbl4.vercel.app/api/auth`
+- Add path to auth page `/api/auth`. It should looks like this `https://spotify-playing-now-readme.akellbl4.vercel.app/api/auth`
 - Put the url **Redirect URI** and click **Add**
 - Save changes with click to **Save** in end of the form
-- Open new tab on the browser and go to url which you put in **Redirect URI**. The url should looks like this `spotify-playing-now-readme.akellbl4.vercel.app/api/auth`
+- Open new tab on the browser and go to url which you put in **Redirect URI**. The url should looks like this `https://spotify-playing-now-readme.akellbl4.vercel.app/api/auth`
 - Copy **Refresh token** and put to the application settings on Vercel
 - Go to **Deployments** page and redeploy the last deployment of your application on Vercel
 - Everything is done!
