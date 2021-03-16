@@ -8,7 +8,18 @@ import {
 	CLIENT_SECRET,
 } from "../consts/spotify";
 
-export const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
+type TrackInfo = {
+	progress: number;
+	duration: number;
+	track: string;
+	artist: string;
+	isPlaying: boolean;
+	coverUrl: string;
+};
+
+export const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
+	"base64"
+);
 
 async function getAccessToken() {
 	const payload = new URLSearchParams({
@@ -29,7 +40,22 @@ async function getAccessToken() {
 	return access_token;
 }
 
-export async function getNowPlaying(): Promise<null | SpotifyApi.CurrentlyPlayingResponse> {
+function formatTrackInfo(
+	trackInfo: SpotifyApi.CurrentlyPlayingResponse
+): TrackInfo {
+	const {
+		progress_ms: progress,
+		item,
+		is_playing: isPlaying = false,
+	} = trackInfo;
+	const { duration_ms: duration, name: track, artists = [], album } = item;
+	const artist = artists.map(({ name }) => name).join(", ");
+	const coverUrl = album.images[album.images.length - 1]?.url;
+
+	return { progress, duration, track, artist, isPlaying, coverUrl };
+}
+
+export async function getNowPlaying(): Promise<null | TrackInfo> {
 	const token = await getAccessToken();
 	const res = await fetch(NOW_PLAYING_ENDPOINT, {
 		headers: {
@@ -42,9 +68,9 @@ export async function getNowPlaying(): Promise<null | SpotifyApi.CurrentlyPlayin
 		return null;
 	}
 
-	const data = await res.json();
+	const data: SpotifyApi.CurrentlyPlayingResponse = await res.json();
 
-	return data;
+	return formatTrackInfo(data);
 }
 
 export async function getCoverBase64(url: string) {
@@ -52,26 +78,4 @@ export async function getCoverBase64(url: string) {
 	const buff = await res.arrayBuffer();
 
 	return Buffer.from(buff).toString("base64");
-}
-
-export function formatTrackInfo(
-	trackInfo: SpotifyApi.CurrentlyPlayingResponse | null
-): {
-	progress: number;
-	duration: number;
-	track: string;
-	artist: string;
-	isPlaying: boolean;
-	coverUrl: string;
-} {
-	if (!trackInfo) {
-		return null;
-	}
-
-	const { progress_ms: progress, item, is_playing: isPlaying = false } = trackInfo;
-	const { duration_ms: duration, name: track, artists = [], album } = item;
-	const artist = artists.map(({ name }) => name).join(", ");
-	const coverUrl = album.images[album.images.length - 1]?.url;
-
-	return { progress, duration, track, artist, isPlaying, coverUrl };
 }
