@@ -48,6 +48,7 @@ export default function Player({
 						padding: 6px 12px;
 						align-items: center;
 						border-radius: 6px;
+						background-color: #fff;
 						font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 						font-size: 16px;
 					}
