@@ -9,7 +9,7 @@ import SpotifyLogo from "./SpotifyLogo";
 import { RefreshIcon } from "./RefreshIcon";
 
 const width = 540;
-const height = 50;
+const height = 52;
 
 type Props = {
 	cover?: string;
