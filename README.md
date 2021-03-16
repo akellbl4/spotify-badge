@@ -40,7 +40,7 @@ If you want to share your love to music with the world you are in right place. Y
 
 You can copy this snippet and change domain in the url to domain of your application and post it wherever you would like
 ```html
-<img src="https://spotify-playing-now-readme.vercel.app/api/now-playing" width="540" height="48">
+<img src="https://spotify-playing-now-readme.vercel.app/api/now-playing" width="540" height="52">
 ```
 
 
