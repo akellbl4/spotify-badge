@@ -70,6 +70,7 @@ export default function Player({
 					}
 					.frame-body-content {
 						display: flex;
+						max-width: calc(100% - 32px);
 						height: 20px;
 						flex-grow: 1;
 						overflow: hidden;
