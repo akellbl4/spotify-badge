@@ -42,7 +42,6 @@ export default function Player({
 					.frame {
 						--delay: ${duration - progress}ms;
 
-						box-shadow: inset 0 0 0 1px #000;
 						display: flex;
 						box-sizing: border-box;
 						width: 100%;
