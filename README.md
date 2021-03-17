@@ -5,10 +5,10 @@ If you want to share your love to music with the world you are in right place. Y
 <img src="https://spotify-playing-now-readme.vercel.app/api/now-playing?3" width="540" height="52">
 
 ### Features
-- 🎸 **playing now** - current state of track with real-time progress bar
-- 🎬 **ended state** – when track is ended badge transitions to this state
-- ⏸ **paused state** - when current track is paused in player
-- 📭 **idle state** – not playing
+🎸 **playing now** - current state of track with real-time progress bar  
+🎬 **ended state** – when track is ended badge transitions to this state  
+⏸ **paused state** - when current track is paused in player  
+📭 **idle state** – not playing  
 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fakellbl4%2Fspotify-playing-now-readme&env=SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,VERCEL_URL&envDescription=Spotify%20credentials%20should%20be%20provided.&envLink=https%3A%2F%2Fgithub.com%2Fakellbl4%2Fspotify-playing-now-readme%2Fblob%2Fmain%2FREADME.md&project-name=spotify-playing-now-readme)
