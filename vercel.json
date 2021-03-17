@@ -4,6 +4,11 @@
 			"source": "/",
 			"destination": "https://github.com/akellbl4/spotify-badge"
 		},
-		{ "source": "/api/now-playing", "destination": "/now-playing" }
+	],
+	"rewrites": [
+		{
+			"source": "/api/now-playing",
+			"destination": "/now-playing"
+		}
 	]
 }
