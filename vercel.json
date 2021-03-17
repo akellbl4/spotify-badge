@@ -1,5 +1,9 @@
 {
-  "redirects": [
-    { "source": "/", "destination": "https://github.com/akellbl4/spotify-badge" }
-  ]
+	"redirects": [
+		{
+			"source": "/",
+			"destination": "https://github.com/akellbl4/spotify-badge"
+		},
+		{ "source": "/api/playing-now", "destination": "/playing-now" }
+	]
 }
