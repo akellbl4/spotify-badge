@@ -77,7 +77,7 @@ export default function Player({
 						animation: shift-6 0.2s;
 						animation-fill-mode: forwards;
 						animation-delay: var(--delay);
-						animation-play-state: ${isPlaying ? "running" : "paused"}
+						animation-play-state: ${isPlaying ? "running" : "paused"};
 					}
 					.frame-body-status {
 						margin-left: 12px;
