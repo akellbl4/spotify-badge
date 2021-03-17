@@ -1,6 +1,6 @@
 {
 	"name": "spotify-badge",
-	"version": "1.0.3",
+	"version": "1.0.5",
 	"license": "MIT",
 	"dependencies": {
 		"classnames": "^2.2.6",
