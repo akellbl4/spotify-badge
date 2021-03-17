@@ -42,6 +42,7 @@ export default function Player({
 					.frame {
 						--delay: ${duration - progress}ms;
 
+						box-shadow: inset 0 0 0 1px #000;
 						display: flex;
 						box-sizing: border-box;
 						width: 100%;
@@ -75,7 +76,7 @@ export default function Player({
 						flex-grow: 1;
 						overflow: hidden;
 						align-items: center;
-						animation: shift-6 0.2s;
+						animation: shift-5 0.2s;
 						animation-fill-mode: forwards;
 						animation-delay: var(--delay);
 						animation-play-state: ${isPlaying ? "running" : "paused"};
@@ -86,7 +87,7 @@ export default function Player({
 						height: 20px;
 						overflow: hidden;
 						flex-shrink: 0;
-						animation: shift-6 0.2s;
+						animation: shift-5 0.2s;
 						animation-fill-mode: forwards;
 						animation-delay: var(--delay);
 					}
@@ -113,12 +114,12 @@ export default function Player({
 							transform: translateY(100%);
 						}
 					}
-					@keyframes shift-6 {
+					@keyframes shift-5 {
 						0% {
 							transform: translateY(0);
 						}
 						100% {
-							transform: translateY(6px);
+							transform: translateY(5px);
 						}
 					}
 					@keyframes shift-half {
