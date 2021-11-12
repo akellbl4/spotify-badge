@@ -1,6 +1,6 @@
 # Spotify is playing now in your readme
 
-If you want to share your love to music with the world you are in right place. You can share cunrrently playing track from you Spotify just with an image.
+If you want to share your love of music with the world you are in right place. You can share your currently playing track from your Spotify with just an image.
 
 <img src="https://spotify-badge.vercel.app/api/now-playing?3" width="540" height="52">
 
@@ -17,7 +17,7 @@ If you want to share your love to music with the world you are in right place. Y
 #### Create an Spotify application for authentication
 - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and log in with your Spotify account
 - Click **Create An App**
-- Fill the name and description of new app and click **Create**.
+- Fill in the name and description of new app and click **Create**.
 - Click **Show Client Secret**.
 - Copy **Client ID** and **Client Secret** we will need it a bit later.
 
