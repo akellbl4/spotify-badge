@@ -9,7 +9,7 @@ import {
 } from "../consts/spotify";
 
 type TrackInfo = {
-	progress: number;
+	progress: number | null;
 	duration: number;
 	track: string;
 	artist: string;
@@ -17,9 +17,7 @@ type TrackInfo = {
 	coverUrl: string;
 };
 
-export const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
-	"base64"
-);
+export const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
 
 async function getAccessToken() {
 	const payload = new URLSearchParams({
@@ -40,14 +38,13 @@ async function getAccessToken() {
 	return access_token;
 }
 
-function formatTrackInfo(
-	trackInfo: SpotifyApi.CurrentlyPlayingResponse
-): TrackInfo {
-	const {
-		progress_ms: progress,
-		item,
-		is_playing: isPlaying = false,
-	} = trackInfo;
+function formatTrackInfo(trackInfo: SpotifyApi.CurrentlyPlayingResponse): TrackInfo | null {
+	const { progress_ms: progress, item, is_playing: isPlaying = false } = trackInfo;
+
+	if (item === null) {
+		return null;
+	}
+
 	const { duration_ms: duration, name: track, artists = [], album } = item;
 	const artist = artists.map(({ name }) => name).join(", ");
 	const coverUrl = album.images[album.images.length - 1]?.url;

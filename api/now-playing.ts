@@ -6,10 +6,9 @@ import Player from "../components/Player";
 
 export default async function nowPlaying(_: NowRequest, res: NowResponse) {
 	const nowPlaying = await getNowPlaying();
-	const cover = nowPlaying
-		? await getCoverBase64(nowPlaying.coverUrl)
-		: undefined;
-	const player = render(Player({ ...nowPlaying, cover }));
+	const cover = nowPlaying ? await getCoverBase64(nowPlaying.coverUrl) : undefined;
+	const props = nowPlaying === null ? {} : { ...nowPlaying, cover };
+	const player = render(Player(props));
 
 	res.setHeader("Content-Type", "image/svg+xml");
 	res.setHeader("Cache-Control", "s-maxage=1");

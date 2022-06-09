@@ -1,6 +1,12 @@
 import { h, Fragment } from "preact";
 
-export default function Progress({ playing, progress, duration }) {
+type Props = {
+	playing: boolean;
+	progress: number;
+	duration: number;
+};
+
+export default function Progress({ playing, progress, duration }: Props) {
 	return (
 		<Fragment>
 			<style>{`

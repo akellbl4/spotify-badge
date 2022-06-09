@@ -11,24 +11,21 @@ import { RefreshIcon } from "./RefreshIcon";
 const width = 540;
 const height = 52;
 
-type Props = {
+export type Props = {
 	cover?: string;
 	track?: string;
 	artist?: string;
 	duration?: number;
-	progress?: number;
+	progress?: number | null;
 	isPlaying?: boolean;
 };
 
-export default function Player({
-	track,
-	artist,
-	cover,
-	progress,
-	duration,
-	isPlaying,
-}: Props) {
+export default function Player(props: Props) {
+	const { track, artist, cover, progress, duration } = props;
 	const hasTrack = track && artist;
+	const isPlaying = Boolean(props.isPlaying);
+	const hasProgress = isPlaying && typeof progress === "number" && typeof duration === "number";
+
 	return (
 		<svg
 			fill="none"
@@ -40,7 +37,7 @@ export default function Player({
 			<foreignObject width={width} height={height}>
 				<style>{`
 					.frame {
-						--delay: ${duration - progress}ms;
+						--delay: ${hasProgress ? duration - progress : 0}ms;
 
 						display: flex;
 						box-sizing: border-box;
@@ -78,7 +75,7 @@ export default function Player({
 						animation: shift-5 0.2s;
 						animation-fill-mode: forwards;
 						animation-delay: var(--delay);
-						animation-play-state: ${isPlaying ? "running" : "paused"};
+						animation-play-state: ${hasProgress ? "running" : "paused"};
 					}
 					.frame-body-status {
 						margin-left: 12px;
@@ -133,10 +130,7 @@ export default function Player({
 				<div className="frame" {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
 					<div className="frame-image">
 						{cover ? (
-							<Cover
-								playing={isPlaying}
-								src={`data:image/jpeg;base64,${cover}`}
-							/>
+							<Cover playing={isPlaying} src={`data:image/jpeg;base64,${cover}`} />
 						) : (
 							<SpotifyLogo />
 						)}
@@ -157,13 +151,9 @@ export default function Player({
 								)}
 							</div>
 						)}
-						{isPlaying && (
+						{hasProgress && (
 							<div className="frame-progress">
-								<Progress
-									playing={isPlaying}
-									progress={progress}
-									duration={duration}
-								/>
+								<Progress playing={isPlaying} progress={progress} duration={duration} />
 							</div>
 						)}
 					</div>
