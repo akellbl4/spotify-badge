@@ -1,4 +1,4 @@
-# Spotify is playing now in your readme
+# Spotify is playing now in your README.md
 
 If you want to share your love of music with the world you are in right place. You can share your currently playing track from your Spotify with just an image.
 
