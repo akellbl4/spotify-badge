@@ -37,10 +37,11 @@ If you want to share your love of music with the world you are in right place. Y
 - Go back to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) 
 - Open application
 - Click to **Edit Settings**
-- Add path to auth page `/api/auth`. It should looks like this `https://spotify-playing-now-readme.akellbl4.vercel.app/api/auth`
+- Add path `/api/auth` to deployment domain. It should looks like this `https://spotify-badge-c74hazo6k-akellbl4.vercel.app/api/auth`.
+  [Screenshot](https://github.com/akellbl4/spotify-badge/blob/25e8d27aaff69e93ffb7a933a615b7e114fc58cc/screenshots/vercel-domain.png)
 - Put the url **Redirect URI** and click **Add**
 - Save changes with click to **Save** in end of the form
-- Open new tab on the browser and go to url which you put in **Redirect URI**. The url should looks like this `https://spotify-playing-now-readme.akellbl4.vercel.app/api/auth`
+- Open new tab on the browser and go to url which you put in **Redirect URI**. The url should looks like this `https://spotify-badge-c74hazo6k-akellbl4.vercel.app.akellbl4.vercel.app/api/auth`
 - Copy **Refresh token** and put to the application settings on Vercel
 - Go to **Deployments** page and redeploy the last deployment of your application on Vercel
 - Everything is done!
