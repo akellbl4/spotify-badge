@@ -18,9 +18,7 @@ export default async function spotifyAuth(req: NowRequest, res: NowResponse) {
 			scope: "user-read-currently-playing user-top-read",
 		});
 
-		return res.redirect(
-			`https://accounts.spotify.com/authorize?${query.toString()}`
-		);
+		return res.redirect(`https://accounts.spotify.com/authorize?${query.toString()}`);
 	}
 
 	const response = await fetch(TOKEN_ENDPOINT, {
