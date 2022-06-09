@@ -1,12 +1,15 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "module": "es2020",
-        "moduleResolution": "node",
-        "target": "es2017",
-        "jsx": "react",
-        "jsxFactory": "h",
-        "esModuleInterop": true,
-        "skipLibCheck": true
-    }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "es2020",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
 }
