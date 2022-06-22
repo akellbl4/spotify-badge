@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import fetch from "isomorphic-unfetch";
 import { render } from "preact-render-to-string";
 
@@ -9,7 +9,7 @@ import RefreshToken from "../components/RefreshToken";
 const { VERCEL_URL } = process.env;
 const REDIRECT_URI = `https://${VERCEL_URL}/api/auth`;
 
-export default async function spotifyAuth(req: NowRequest, res: NowResponse) {
+export default async function spotifyAuth(req: VercelRequest, res: VercelResponse) {
 	if (!req.query.code) {
 		const query = new URLSearchParams({
 			client_id: CLIENT_ID,
