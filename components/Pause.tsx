@@ -1,4 +1,4 @@
-import { h, Fragment } from "preact";
+import { h, Fragment } from 'preact'
 
 export default function Pause() {
 	return (
@@ -10,8 +10,9 @@ export default function Pause() {
 					align-items: center;
 					box-sizing: border-box;
 					border: 1px solid #ccc;
-					width: 100%;
-					height: 100%;
+					width: 22px;
+					height: 22px;
+					margin: -1px;
 					border-radius: 50%;
 				}
 				.pause:before,
@@ -26,5 +27,5 @@ export default function Pause() {
 			`}</style>
 			<div className="pause" />
 		</Fragment>
-	);
+	)
 }

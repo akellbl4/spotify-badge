@@ -1,30 +1,21 @@
-import { Fragment, h } from "preact";
+import { h } from 'preact'
 
-import Pause from "./Pause";
-import Cover from "./Cover";
-import Progress from "./Progress";
-import Equalizer from "./Equalizer";
-import TrackInfo from "./TrackInfo";
-import SpotifyLogo from "./SpotifyLogo";
-import { RefreshIcon } from "./RefreshIcon";
+import Pause from './Pause'
+import Cover from './Cover'
+import Progress from './Progress'
+import Equalizer from './Equalizer'
+import TrackInfo from './TrackInfo'
+import SpotifyLogo from './SpotifyLogo'
+import { RefreshIcon } from './RefreshIcon'
+import { TrackInfo as TTrackInfo } from '../lib/spotify'
 
-const width = 540;
-const height = 52;
+const width = 540
+const height = 52
 
-export type Props = {
-	track?: string;
-	artist?: string;
-	duration?: number;
-	progress?: number | null;
-	isPlaying?: boolean;
-	coverUrl?: string;
-};
+export type Props = TTrackInfo | ({ isPlaying: false } & Partial<Omit<TTrackInfo, 'isPlaying'>>)
 
-export default function Player(props: Props) {
-	const { track, artist, coverUrl, progress, duration } = props;
-	const hasTrack = track && artist;
-	const isPlaying = Boolean(props.isPlaying);
-	const hasProgress = isPlaying && typeof progress === "number" && typeof duration === "number";
+export default function Player(p: Props) {
+	const hasTrack = typeof p.artist === 'string' && typeof p.track === 'string'
 
 	return (
 		<svg
@@ -37,7 +28,7 @@ export default function Player(props: Props) {
 			<foreignObject width={width} height={height}>
 				<style>{`
 					.frame {
-						--delay: ${hasProgress ? duration - progress : 0}ms;
+						--delay: ${p.isPlaying ? p.duration - p.progress : 0}ms;
 
 						display: flex;
 						box-sizing: border-box;
@@ -61,7 +52,6 @@ export default function Player(props: Props) {
 					.frame-body {
 						display: flex;
 						width: 100%;
-						overflow: hidden;
 						flex-wrap: wrap;
 						align-items: center;
 					}
@@ -75,14 +65,16 @@ export default function Player(props: Props) {
 						animation: shift-5 0.2s;
 						animation-fill-mode: forwards;
 						animation-delay: var(--delay);
-						animation-play-state: ${hasProgress ? "running" : "paused"};
+						animation-play-state: ${p.isPlaying ? 'running' : 'paused'};
 					}
 					.frame-body-status {
 						margin-left: 12px;
 						width: 20px;
 						height: 20px;
-						overflow: hidden;
 						flex-shrink: 0;
+					}
+					.frame-body-status_playing {
+						overflow: hidden;
 						animation: shift-5 0.2s;
 						animation-fill-mode: forwards;
 						animation-delay: var(--delay);
@@ -127,34 +119,35 @@ export default function Player(props: Props) {
 						}
 					}
 				`}</style>
-				<div className="frame" {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
+				<div className="frame" {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}>
 					<div className="frame-image">
-						{coverUrl ? <Cover playing={isPlaying} src={coverUrl} /> : <SpotifyLogo />}
+						{p.coverUrl ? <Cover playing={p.isPlaying} src={p.coverUrl} /> : <SpotifyLogo />}
 					</div>
 					<div className="frame-body">
 						<div className="frame-body-content">
-							<TrackInfo artist={artist} track={track} />
+							<TrackInfo artist={p.artist} track={p.track} />
 						</div>
-						{hasTrack && (
-							<div className="frame-body-status">
-								{isPlaying ? (
+						{hasTrack &&
+							(p.isPlaying ? (
+								<div className="frame-body-status frame-body-status_playing">
 									<div className="frame-body-status-playing">
 										<RefreshIcon />
 										<Equalizer />
 									</div>
-								) : (
+								</div>
+							) : (
+								<div className="frame-body-status">
 									<Pause />
-								)}
-							</div>
-						)}
-						{hasProgress && (
+								</div>
+							))}
+						{p.isPlaying && (
 							<div className="frame-progress">
-								<Progress playing={isPlaying} progress={progress} duration={duration} />
+								<Progress playing={p.isPlaying} progress={p.progress} duration={p.duration} />
 							</div>
 						)}
 					</div>
 				</div>
 			</foreignObject>
 		</svg>
-	);
+	)
 }

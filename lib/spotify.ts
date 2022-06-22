@@ -8,8 +8,8 @@ import {
 	CLIENT_SECRET,
 } from '../consts'
 
-type TrackInfo = {
-	progress: number | null
+export type TrackInfo = {
+	progress: number
 	duration: number
 	track: string
 	artist: string
@@ -40,16 +40,23 @@ async function getAccessToken() {
 }
 
 function formatTrackInfo(trackInfo: SpotifyApi.CurrentlyPlayingResponse): TrackInfo | null {
-	const { progress_ms: progress, item, is_playing: isPlaying = false } = trackInfo
+	const { progress_ms, item, is_playing: isPlaying = false, currently_playing_type } = trackInfo
 
-	if (item === null) {
+	if (item === null || currently_playing_type !== 'track') {
 		return null
 	}
 
-	const { duration_ms: duration, name: track, artists = [], album, external_urls } = item
+	const {
+		duration_ms: duration,
+		name: track,
+		artists = [],
+		album,
+		external_urls,
+	} = item as SpotifyApi.TrackObjectFull
 	const artist = artists.map(({ name }) => name).join(', ')
 	const coverUrl = album.images[album.images.length - 1]?.url
 	const url = external_urls.spotify
+	const progress = progress_ms ?? 0
 
 	return { progress, duration, track, artist, isPlaying, coverUrl, url }
 }
@@ -81,11 +88,13 @@ async function getCoverBase64(url: string) {
 
 export async function getNowPlaying(
 	{ coverFormat }: { coverFormat: 'url' | 'base64' } = { coverFormat: 'url' }
-) {
+): Promise<TrackInfo | { isPlaying: false }> {
 	const track = await getCurrentTrack()
 
 	if (track === null) {
-		return {}
+		return {
+			isPlaying: false,
+		}
 	}
 
 	if (coverFormat === 'base64') {

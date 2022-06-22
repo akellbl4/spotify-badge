@@ -1,9 +1,10 @@
-import { h, Fragment } from "preact";
+import { h, Fragment } from 'preact'
 
-export default function TrackInfo({
-	track = "Not playing",
-	artist = "Spotify",
-}) {
+type Props = {
+	track?: string
+	artist?: string
+}
+export default function TrackInfo({ track = 'Not playing', artist = 'Spotify' }: Props) {
 	return (
 		<Fragment>
 			<style>{`
@@ -31,5 +32,5 @@ export default function TrackInfo({
 				<span className="track-info-artist">{` – ${artist}`}</span>
 			</div>
 		</Fragment>
-	);
+	)
 }
