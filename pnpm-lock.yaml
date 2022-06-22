@@ -1,11 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/classnames': ^2.3.1
   '@types/node': ^18.0.0
   '@types/spotify-api': ^0.0.16
   '@vercel/node': ^2.2.0
-  classnames: ^2.3.1
   isomorphic-unfetch: ^3.1.0
   nodemon: ^2.0.16
   preact: ^10.8.1
@@ -15,13 +13,11 @@ specifiers:
   vercel: ^25.1.0
 
 dependencies:
-  classnames: 2.3.1
   isomorphic-unfetch: 3.1.0
   preact: 10.8.1
   preact-render-to-string: 5.2.0_preact@10.8.1
 
 devDependencies:
-  '@types/classnames': 2.3.1
   '@types/node': 18.0.0
   '@types/spotify-api': 0.0.16
   '@vercel/node': 2.2.0
@@ -164,13 +160,6 @@ packages:
     resolution: {integrity: sha512-iEvdm9Z9KdSs/ozuh1Z7ZsXrOl8F4M/CLMXPZHr3QuJ4d6Bjn+HBMC5EMKpwpAo8oi8iK9GZfFoHaIMrrZgwVw==}
     dependencies:
       '@types/node': 18.0.0
-    dev: true
-
-  /@types/classnames/2.3.1:
-    resolution: {integrity: sha512-zeOWb0JGBoVmlQoznvqXbE0tEC/HONsnoUNH19Hc96NFsTAwTXbTqb8FMYkru1F/iqp7a18Ws3nWJvtA1sHD1A==}
-    deprecated: This is a stub types definition. classnames provides its own type definitions, so you do not need this installed.
-    dependencies:
-      classnames: 2.3.1
     dev: true
 
   /@types/cookie/0.4.1:
@@ -591,9 +580,6 @@ packages:
   /ci-info/2.0.0:
     resolution: {integrity: sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==}
     dev: true
-
-  /classnames/2.3.1:
-    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
 
   /cli-boxes/2.2.1:
     resolution: {integrity: sha512-y4coMcylgSCdVinjiDBuR8PCC2bLjyGTwEmPb9NHR/QaNU6EUOXcTY/s6VjGMD6ENSEaeQYHCY0GNGS5jfMwPw==}
