@@ -1,7 +1,11 @@
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env;
 
 Object.entries({ SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN }).forEach(
-	(key) => {
+	([key, value]) => {
+		if (typeof value === "string") {
+			return;
+		}
+
 		console.error(`Missing environment variable: ${key}`);
 	}
 );
