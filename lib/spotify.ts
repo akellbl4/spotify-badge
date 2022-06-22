@@ -77,14 +77,23 @@ async function getCoverBase64(url: string) {
 	return Buffer.from(buff).toString("base64");
 }
 
-export async function getNowPlaying() {
+export async function getNowPlaying(
+	{ coverFormat }: { coverFormat: "url" | "base64" } = { coverFormat: "url" }
+) {
 	const track = await getCurrentTrack();
 
 	if (track === null) {
 		return {};
 	}
 
-	const cover = await getCoverBase64(track.coverUrl);
+	if (coverFormat === "base64") {
+		const coverUrl = await getCoverBase64(track.coverUrl);
 
-	return { cover, ...track };
+		return {
+			...track,
+			coverUrl,
+		};
+	}
+
+	return track;
 }
