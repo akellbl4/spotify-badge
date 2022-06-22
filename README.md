@@ -59,3 +59,7 @@ You can copy this snippet and change domain in the url to domain of your applica
 ```
 
 ### Development
+
+- Copy `.env.example` to `.env` and add values to env variables
+- Run `yarn` for dependencies installation
+- Run `yarn dev` for starting development server

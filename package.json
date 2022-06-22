@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "license": "MIT",
   "scripts": {
+    "dev": "nodemon",
     "type-check": "tsc --noEmit",
     "prettify": "prettier --write '{**/*.{ts,json},.prettierrc}'"
   },
@@ -17,8 +18,20 @@
     "@types/node": "^14.14.25",
     "@types/spotify-api": "^0.0.7",
     "@vercel/node": "^1.9.0",
+    "nodemon": "^2.0.16",
     "prettier": "^2.2.1",
     "typescript": "^4.7.3",
     "vercel": "^21.2.3"
+  },
+  "nodemonConfig": {
+    "ext": "ts",
+    "exec": "vercel dev",
+    "watch": [
+      "api/*",
+      "components/*",
+      "consts/*",
+      "lib/*",
+      "pages/*"
+    ]
   }
 }
