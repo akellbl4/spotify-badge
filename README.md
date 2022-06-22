@@ -58,6 +58,29 @@ You can copy this snippet and change domain in the url to domain of your applica
 />
 ```
 
+## API
+
+### `GET /api/now-playing`
+
+**Response:**
+
+When something is playing
+```ts
+type Track = {
+  progress: number | null;
+  duration: number;
+  track: string;
+  artist: string;
+  isPlaying: boolean;
+  coverUrl: string;
+}
+```
+
+When nothing is playing
+```ts
+type Empty = {}
+```
+
 ### Development
 
 - Copy `.env.example` to `.env` and add values to env variables
