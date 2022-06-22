@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "type-check": "tsc --noEmit",
-    "prettify": "prettier --write '{**/*.{ts,json},.prettierrc}'"
+    "format": "prettier --write '{**/*.{ts,json},.prettierrc}'"
   },
   "dependencies": {
     "classnames": "^2.2.6",
