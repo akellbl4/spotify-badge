@@ -1,4 +1,4 @@
-import fetch from "isomorphic-unfetch";
+import fetch from 'isomorphic-unfetch'
 
 import {
 	TOKEN_ENDPOINT,
@@ -6,96 +6,96 @@ import {
 	REFRESH_TOKEN,
 	CLIENT_ID,
 	CLIENT_SECRET,
-} from "../consts";
+} from '../consts'
 
 type TrackInfo = {
-	progress: number | null;
-	duration: number;
-	track: string;
-	artist: string;
-	isPlaying: boolean;
-	coverUrl: string;
-	url: string;
-};
+	progress: number | null
+	duration: number
+	track: string
+	artist: string
+	isPlaying: boolean
+	coverUrl: string
+	url: string
+}
 
-export const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
+export const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 
 async function getAccessToken() {
 	const payload = new URLSearchParams({
-		grant_type: "refresh_token",
+		grant_type: 'refresh_token',
 		refresh_token: REFRESH_TOKEN,
-	});
+	})
 	const res = await fetch(TOKEN_ENDPOINT, {
-		method: "POST",
+		method: 'POST',
 		headers: {
-			Authorization: `Basic ${basic}`,
-			"Content-Type": "application/x-www-form-urlencoded",
+			'Authorization': `Basic ${basic}`,
+			'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		body: payload.toString(),
-	});
+	})
 
-	const { access_token } = await res.json();
+	const { access_token } = await res.json()
 
-	return access_token;
+	return access_token
 }
 
 function formatTrackInfo(trackInfo: SpotifyApi.CurrentlyPlayingResponse): TrackInfo | null {
-	const { progress_ms: progress, item, is_playing: isPlaying = false } = trackInfo;
+	const { progress_ms: progress, item, is_playing: isPlaying = false } = trackInfo
 
 	if (item === null) {
-		return null;
+		return null
 	}
 
-	const { duration_ms: duration, name: track, artists = [], album, external_urls } = item;
-	const artist = artists.map(({ name }) => name).join(", ");
-	const coverUrl = album.images[album.images.length - 1]?.url;
-	const url = external_urls.spotify;
+	const { duration_ms: duration, name: track, artists = [], album, external_urls } = item
+	const artist = artists.map(({ name }) => name).join(', ')
+	const coverUrl = album.images[album.images.length - 1]?.url
+	const url = external_urls.spotify
 
-	return { progress, duration, track, artist, isPlaying, coverUrl, url };
+	return { progress, duration, track, artist, isPlaying, coverUrl, url }
 }
 
 async function getCurrentTrack(): Promise<null | TrackInfo> {
-	const token = await getAccessToken();
+	const token = await getAccessToken()
 	const res = await fetch(NOW_PLAYING_ENDPOINT, {
 		headers: {
-			Authorization: `Bearer ${token}`,
-			"Content-Type": "application/x-www-form-urlencoded",
+			'Authorization': `Bearer ${token}`,
+			'Content-Type': 'application/x-www-form-urlencoded',
 		},
-	});
+	})
 
 	if (res.status !== 200) {
-		return null;
+		return null
 	}
 
-	const data: SpotifyApi.CurrentlyPlayingResponse = await res.json();
+	const data: SpotifyApi.CurrentlyPlayingResponse = await res.json()
 
-	return formatTrackInfo(data);
+	return formatTrackInfo(data)
 }
 
 async function getCoverBase64(url: string) {
-	const res = await fetch(url);
-	const buff = await res.arrayBuffer();
+	const res = await fetch(url)
+	const buff = await res.arrayBuffer()
 
-	return Buffer.from(buff).toString("base64");
+	return Buffer.from(buff).toString('base64')
 }
 
 export async function getNowPlaying(
-	{ coverFormat }: { coverFormat: "url" | "base64" } = { coverFormat: "url" }
+	{ coverFormat }: { coverFormat: 'url' | 'base64' } = { coverFormat: 'url' }
 ) {
-	const track = await getCurrentTrack();
+	const track = await getCurrentTrack()
 
 	if (track === null) {
-		return {};
+		return {}
 	}
 
-	if (coverFormat === "base64") {
-		const coverBase64 = await getCoverBase64(track.coverUrl);
+	if (coverFormat === 'base64') {
+		const coverBase64 = await getCoverBase64(track.coverUrl)
 
 		return {
 			...track,
 			coverUrl: `data:image/jpeg;base64,${coverBase64}`,
-		};
+		}
 	}
 
-	return track;
+	return track
 }
