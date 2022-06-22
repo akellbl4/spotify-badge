@@ -52,7 +52,7 @@ function formatTrackInfo(trackInfo: SpotifyApi.CurrentlyPlayingResponse): TrackI
 	return { progress, duration, track, artist, isPlaying, coverUrl };
 }
 
-export async function getNowPlaying(): Promise<null | TrackInfo> {
+async function getCurrentTrack(): Promise<null | TrackInfo> {
 	const token = await getAccessToken();
 	const res = await fetch(NOW_PLAYING_ENDPOINT, {
 		headers: {
@@ -70,9 +70,21 @@ export async function getNowPlaying(): Promise<null | TrackInfo> {
 	return formatTrackInfo(data);
 }
 
-export async function getCoverBase64(url: string) {
+async function getCoverBase64(url: string) {
 	const res = await fetch(url);
 	const buff = await res.arrayBuffer();
 
 	return Buffer.from(buff).toString("base64");
+}
+
+export async function getNowPlaying() {
+	const track = await getCurrentTrack();
+
+	if (track === null) {
+		return {};
+	}
+
+	const cover = await getCoverBase64(track.coverUrl);
+
+	return { cover, ...track };
 }
