@@ -12,16 +12,16 @@ const width = 540;
 const height = 52;
 
 export type Props = {
-	cover?: string;
 	track?: string;
 	artist?: string;
 	duration?: number;
 	progress?: number | null;
 	isPlaying?: boolean;
+	coverUrl?: string;
 };
 
 export default function Player(props: Props) {
-	const { track, artist, cover, progress, duration } = props;
+	const { track, artist, coverUrl, progress, duration } = props;
 	const hasTrack = track && artist;
 	const isPlaying = Boolean(props.isPlaying);
 	const hasProgress = isPlaying && typeof progress === "number" && typeof duration === "number";
@@ -129,11 +129,7 @@ export default function Player(props: Props) {
 				`}</style>
 				<div className="frame" {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
 					<div className="frame-image">
-						{cover ? (
-							<Cover playing={isPlaying} src={`data:image/jpeg;base64,${cover}`} />
-						) : (
-							<SpotifyLogo />
-						)}
+						{coverUrl ? <Cover playing={isPlaying} src={coverUrl} /> : <SpotifyLogo />}
 					</div>
 					<div className="frame-body">
 						<div className="frame-body-content">

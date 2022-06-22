@@ -89,11 +89,11 @@ export async function getNowPlaying(
 	}
 
 	if (coverFormat === "base64") {
-		const coverUrl = await getCoverBase64(track.coverUrl);
+		const coverBase64 = await getCoverBase64(track.coverUrl);
 
 		return {
 			...track,
-			coverUrl,
+			coverUrl: `data:image/jpeg;base64,${coverBase64}`,
 		};
 	}
 
