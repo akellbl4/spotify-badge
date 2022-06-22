@@ -2,11 +2,10 @@ import { VercelRequest, VercelResponse } from "@vercel/node";
 import fetch from "isomorphic-unfetch";
 import { render } from "preact-render-to-string";
 
-import { CLIENT_ID, TOKEN_ENDPOINT } from "../consts/spotify";
+import { CLIENT_ID, TOKEN_ENDPOINT, VERCEL_URL } from "../consts";
 import { basic } from "../lib/spotify";
 import RefreshToken from "../components/RefreshToken";
 
-const { VERCEL_URL } = process.env;
 const REDIRECT_URI =
 	typeof VERCEL_URL === "string"
 		? `https://${VERCEL_URL}/api/auth`

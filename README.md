@@ -30,6 +30,7 @@ If you want to share your love of music with the world you are in right place. Y
 - Choose where you want to save code on **Create Git Repository** and Vercel will fork this repo automatically
 - Click **Continue** on **Import Project** screen
 - Put **Client ID** to `SPOTIFY_CLIENT_ID` and **Client Secret** to `SPOTIFY_CLIENT_SECRET` and put just `-` to `SPOTIFY_REFRESH_TOKEN`.
+- If you plan to use API specify `API_CORS_HOST` as host from which you plan to call the API endpoint. [Read more](#api)
 - Click **Deploy**
 
 #### Get Refresh Token
@@ -60,25 +61,34 @@ You can copy this snippet and change domain in the url to domain of your applica
 
 ## API
 
+To make API available you need to specify `API_CORS_HOST` after you deployed the app.
+
+- Open created project on Vercel and go to **Settings**.
+- Open tab **Environment Variables**
+- Create variable with name `API_CORS_HOST` and put site address from which you plan make requests for example `https://example.com` (the variable will be set to `Access-Control-Allow-Origin` header. [More about the header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin))
+
 ### `GET /api/now-playing`
 
 **Response:**
 
 When something is playing
+
 ```ts
 type Track = {
-  progress: number | null;
-  duration: number;
-  track: string;
-  artist: string;
-  isPlaying: boolean;
-  coverUrl: string;
-}
+	progress: number | null;
+	duration: number;
+	track: string;
+	artist: string;
+	isPlaying: boolean;
+	coverUrl: string;
+	url: string;
+};
 ```
 
 When nothing is playing
+
 ```ts
-type Empty = {}
+type Empty = {};
 ```
 
 ### Development

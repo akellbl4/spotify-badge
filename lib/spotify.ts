@@ -6,7 +6,7 @@ import {
 	REFRESH_TOKEN,
 	CLIENT_ID,
 	CLIENT_SECRET,
-} from "../consts/spotify";
+} from "../consts";
 
 type TrackInfo = {
 	progress: number | null;

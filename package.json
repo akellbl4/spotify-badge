@@ -30,9 +30,8 @@
     "watch": [
       "api/*",
       "components/*",
-      "consts/*",
-      "lib/*",
-      "pages/*"
+      "consts.ts",
+      "lib/*"
     ]
   }
 }
