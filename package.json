@@ -1,6 +1,6 @@
 {
   "name": "spotify-badge",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "license": "MIT",
   "packageManager": "pnpm@7.3.0",
   "scripts": {
