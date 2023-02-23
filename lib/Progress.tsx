@@ -1,10 +1,10 @@
-import { h, Fragment } from "preact";
+import { h, Fragment } from 'preact'
 
 type Props = {
-	playing: boolean;
-	progress: number;
-	duration: number;
-};
+	playing: boolean
+	progress: number
+	duration: number
+}
 
 export function Progress({ playing, progress, duration }: Props) {
 	return (
@@ -25,11 +25,11 @@ export function Progress({ playing, progress, duration }: Props) {
 					content: '';
 					width: 100%;
 					height: 100%;
-					background-color: ${playing ? "#10a242" : "rgba(0, 0, 0, 0.1);"};
+					background-color: ${playing ? '#10a242' : 'rgba(0, 0, 0, 0.1);'};
 					transform: translateX(-100%);
 					animation: progress ${duration}ms linear;
 					animation-delay: -${progress}ms;
-					animation-play-state: ${playing ? "running" : "paused"}
+					animation-play-state: ${playing ? 'running' : 'paused'}
 					border-radius: 3px;
 				}
 				@keyframes progress {
@@ -43,5 +43,5 @@ export function Progress({ playing, progress, duration }: Props) {
 			`}</style>
 			<div className="progress" />
 		</Fragment>
-	);
+	)
 }

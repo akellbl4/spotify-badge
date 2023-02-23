@@ -1,11 +1,11 @@
 import { h } from 'preact'
 
-import {Pause} from './Pause.js'
-import {Cover} from './Cover.js'
-import {Progress} from './Progress.js'
-import {Equalizer} from './Equalizer.js'
-import {TrackInfo} from './TrackInfo.js'
-import {SpotifyLogo} from './SpotifyLogo.js'
+import { Pause } from './Pause.js'
+import { Cover } from './Cover.js'
+import { Progress } from './Progress.js'
+import { Equalizer } from './Equalizer.js'
+import { TrackInfo } from './TrackInfo.js'
+import { SpotifyLogo } from './SpotifyLogo.js'
 import { RefreshIcon } from './RefreshIcon.js'
 import { TrackInfo as TTrackInfo } from '../lib/spotify.js'
 
