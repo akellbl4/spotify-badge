@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "strict": true
   },
-  "include": ["**/*.ts"],
+  "include": ["api/**/*.ts", "components/**/*.tsx", "lib/**/*.ts", "consts.ts"],
   "exclude": ["node_modules"]
 }
