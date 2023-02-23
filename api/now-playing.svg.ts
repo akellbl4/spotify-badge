@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import render from 'preact-render-to-string'
 
 import { getNowPlaying } from '../lib/spotify.js'
-import { Player } from '../lib/Player.js'
+import { Player } from '../components/Player.js'
 
 export default async function nowPlaying(_: VercelRequest, res: VercelResponse) {
 	const track = await getNowPlaying({ coverFormat: 'base64' })

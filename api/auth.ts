@@ -4,7 +4,7 @@ import { render } from 'preact-render-to-string'
 
 import { CLIENT_ID, TOKEN_ENDPOINT, VERCEL_URL } from '../consts.js'
 import { basic } from '../lib/spotify.js'
-import { RefreshToken } from '../lib/RefreshToken.js'
+import { RefreshToken } from '../components/RefreshToken.js'
 
 const REDIRECT_URI =
 	typeof VERCEL_URL === 'string'
