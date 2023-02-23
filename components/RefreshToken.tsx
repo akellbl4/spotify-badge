@@ -4,7 +4,7 @@ type RefreshTokenProps = {
 	token?: string;
 };
 
-export default function RefreshToken({ token }: RefreshTokenProps) {
+export function RefreshToken({ token }: RefreshTokenProps) {
 	return (
 		<html>
 			<head>

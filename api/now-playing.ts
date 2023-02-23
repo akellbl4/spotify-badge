@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from '@vercel/node'
+import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { CORS_HOST } from '../consts.js'
 import { getNowPlaying } from '../lib/spotify.js'
 

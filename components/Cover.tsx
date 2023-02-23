@@ -5,7 +5,7 @@ type Props = {
 	playing: boolean;
 };
 
-export default function Cover({ src, playing }: Props) {
+export function Cover({ src, playing }: Props) {
 	return (
 		<Fragment>
 			<style>{`

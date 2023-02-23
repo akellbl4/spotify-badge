@@ -1,6 +1,6 @@
 import { h } from "preact";
 
-export default function SpotifyLogo() {
+export function SpotifyLogo() {
 	return (
 		<svg
 			className="spotify-logo"

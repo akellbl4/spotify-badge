@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 
-export default function Pause() {
+export function Pause() {
 	return (
 		<Fragment>
 			<style>{`

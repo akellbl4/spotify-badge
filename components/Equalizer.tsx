@@ -1,6 +1,6 @@
 import { h, Fragment } from "preact";
 
-export default function Equalizer() {
+export function Equalizer() {
 	return (
 		<Fragment>
 			<style>{`

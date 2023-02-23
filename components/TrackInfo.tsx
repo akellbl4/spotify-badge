@@ -4,7 +4,7 @@ type Props = {
 	track?: string
 	artist?: string
 }
-export default function TrackInfo({ track = 'Not playing', artist = 'Spotify' }: Props) {
+export function TrackInfo({ track = 'Not playing', artist = 'Spotify' }: Props) {
 	return (
 		<Fragment>
 			<style>{`

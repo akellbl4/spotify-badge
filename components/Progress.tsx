@@ -6,7 +6,7 @@ type Props = {
 	duration: number;
 };
 
-export default function Progress({ playing, progress, duration }: Props) {
+export function Progress({ playing, progress, duration }: Props) {
 	return (
 		<Fragment>
 			<style>{`
