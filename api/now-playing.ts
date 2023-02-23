@@ -1,8 +1,8 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { CORS_HOST } from '../consts'
-import { getNowPlaying } from '../lib/spotify'
+import { CORS_HOST } from '../consts.js'
+import { getNowPlaying } from '../lib/spotify.js'
 
-export default async function nowPlaying(req: VercelRequest, res: VercelResponse) {
+export default async function nowPlaying(_: VercelRequest, res: VercelResponse) {
 	const track = await getNowPlaying()
 
 	if (CORS_HOST) {
