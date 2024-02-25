@@ -1,6 +1,6 @@
-import { h, Fragment } from "preact";
+import { h, Fragment } from 'preact'
 
-export default function Equalizer() {
+export function Equalizer() {
 	return (
 		<Fragment>
 			<style>{`
@@ -119,5 +119,5 @@ export default function Equalizer() {
 				<div className="equalizer-line" />
 			</div>
 		</Fragment>
-	);
+	)
 }

@@ -1,13 +1,8 @@
-import { h } from "preact";
+import { h } from 'preact'
 
 export function RefreshIcon() {
 	return (
-		<svg
-			width="20"
-			height="20"
-			viewBox="0 0 50 50"
-			xmlns="http://www.w3.org/2000/svg"
-		>
+		<svg width="20" height="20" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
 			<path
 				fill="none"
 				stroke="#000"
@@ -25,5 +20,5 @@ export function RefreshIcon() {
 				stroke-width="2"
 			/>
 		</svg>
-	);
+	)
 }

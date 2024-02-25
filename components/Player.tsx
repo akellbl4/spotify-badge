@@ -1,12 +1,12 @@
 import { h } from 'preact'
 
-import Pause from './Pause'
-import Cover from './Cover'
-import Progress from './Progress'
-import Equalizer from './Equalizer'
-import TrackInfo from './TrackInfo'
-import SpotifyLogo from './SpotifyLogo'
-import { RefreshIcon } from './RefreshIcon'
+import { Pause } from './Pause.js'
+import { Cover } from './Cover.js'
+import { Progress } from './Progress.js'
+import { Equalizer } from './Equalizer.js'
+import { TrackInfo } from './TrackInfo.js'
+import { SpotifyLogo } from './SpotifyLogo.js'
+import { RefreshIcon } from './RefreshIcon.js'
 import { TrackInfo as TTrackInfo } from '../lib/spotify'
 
 const width = 540
@@ -14,7 +14,7 @@ const height = 52
 
 export type Props = TTrackInfo | ({ isPlaying: false } & Partial<Omit<TTrackInfo, 'isPlaying'>>)
 
-export default function Player(p: Props) {
+export function Player(p: Props) {
 	const hasTrack = typeof p.artist === 'string' && typeof p.track === 'string'
 
 	return (

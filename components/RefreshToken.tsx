@@ -1,10 +1,10 @@
-import { h } from "preact";
+import { h } from 'preact'
 
 type RefreshTokenProps = {
-	token?: string;
-};
+	token?: string
+}
 
-export default function RefreshToken({ token }: RefreshTokenProps) {
+export function RefreshToken({ token }: RefreshTokenProps) {
 	return (
 		<html>
 			<head>
@@ -37,5 +37,5 @@ export default function RefreshToken({ token }: RefreshTokenProps) {
 				)}
 			</body>
 		</html>
-	);
+	)
 }
