@@ -6,7 +6,6 @@ import Player from '../components/Player'
 
 export default async function nowPlaying(req: VercelRequest, res: VercelResponse) {
 	const track = await getNowPlaying({ coverFormat: 'base64' })
-	
 	const player = render(Player(track))
 
 	res.setHeader('Content-Type', 'image/svg+xml')

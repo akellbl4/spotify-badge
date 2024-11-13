@@ -13,10 +13,9 @@ const width = 540
 const height = 52
 
 export type Props = TTrackInfo | ({ isPlaying: false } & Partial<Omit<TTrackInfo, 'isPlaying'>>)
-
 export default function Player(p: Props) {
 	const hasTrack = typeof p.artist === 'string' && typeof p.track === 'string'
-
+	console.log(p)
 	return (
 		<svg
 			fill="none"

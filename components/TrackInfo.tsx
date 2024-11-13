@@ -29,7 +29,7 @@ export default function TrackInfo({ track = 'Not playing', artist = 'Spotify' }:
 			`}</style>
 			<div className="track-info">
 				<span className="track-info-composition">{track}</span>
-				<span className="track-info-artist">{` – ${artist}`}</span>
+				{artist && <span className="track-info-artist">{` – ${artist}`}</span>}
 			</div>
 		</Fragment>
 	)
