@@ -83,10 +83,10 @@ async function getCoverBase64(url: string) {
 	try {
 	const res = await fetch(url)
 	const buff = await res.arrayBuffer()
-	return Buffer.from(buff).toString('base64')
+	return `data:image/jpeg;base64,${Buffer.from(buff).toString('base64')}`
 	} catch(e) {
 		console.error('Error fetching cover image:', e)
-		return null
+		return ''
 	}
 }
 
@@ -106,7 +106,7 @@ export async function getNowPlaying(
 
 		return {
 			...track,
-			coverUrl: coverBase64 ? `data:image/jpeg;base64,${coverBase64}` : '',
+			coverUrl: coverBase64,
 		}
 	}
 

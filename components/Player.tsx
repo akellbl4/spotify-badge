@@ -1,4 +1,5 @@
 import { h } from 'preact'
+
 import Pause from './Pause'
 import Cover from './Cover'
 import Progress from './Progress'
