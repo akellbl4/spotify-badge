@@ -9,7 +9,7 @@
     "jsxFragmentFactory": "Fragment",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]
