@@ -2,7 +2,10 @@
   "name": "spotify-badge",
   "version": "1.1.0",
   "license": "MIT",
-  "packageManager": "pnpm@7.3.0",
+  "engines": {
+    "node": "20.x",
+    "pnpm": "9.x"
+  },
   "scripts": {
     "dev": "nodemon",
     "start": "vercel dev",
@@ -10,18 +13,18 @@
     "format": "prettier --write '{**/*.{ts,json},.prettierrc}'"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.1.0",
-    "preact": "^10.8.1",
-    "preact-render-to-string": "^5.2.0"
+    "isomorphic-unfetch": "^4.0.2",
+    "preact": "^10.24.3",
+    "preact-render-to-string": "^6.5.11"
   },
   "devDependencies": {
-    "@types/node": "^18.0.0",
-    "@types/spotify-api": "^0.0.16",
-    "@vercel/node": "^2.2.0",
-    "nodemon": "^2.0.16",
-    "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "vercel": "^25.1.0"
+    "@types/node": "^20.17.6",
+    "@types/spotify-api": "^0.0.25",
+    "@vercel/node": "^3.2.24",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vercel": "^39.0.0"
   },
   "nodemonConfig": {
     "ext": "ts",
@@ -29,8 +32,8 @@
     "watch": [
       "api/*",
       "components/*",
-      "consts.ts",
-      "lib/*"
+      "lib/*",
+      "consts.ts"
     ]
   }
 }
