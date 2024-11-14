@@ -10,7 +10,6 @@ Object.entries({
 	SPOTIFY_CLIENT_ID,
 	SPOTIFY_CLIENT_SECRET,
 	SPOTIFY_REFRESH_TOKEN,
-	API_CORS_HOST,
 }).forEach(([key, value]) => {
 	if (typeof value === "string") {
 		return;
