@@ -2,9 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "module": "NodeNext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
     "target": "es2020",
-    "jsx": "preserve",
+    "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "esModuleInterop": true,
