@@ -93,6 +93,12 @@ type Response =
 ```
 ### Development
 
+#### Prerequisites
+
+Development environment works with (vercel-cli)[https://vercel.com/docs/cli] which requires account on (Vercel)[https://vercel.com]
+
+When project started locally for the first time, `vercel-cli` prompts to login and requires to connect development environment to a project or suggest connecting to an existing one.
+
 - Copy `.env.example` to `.env` and add values to env variables
 - Run `pnpm install` for dependencies installation
-- Run `pnpm dev` to start a development server
+- Run `pnpm start` to start a development server

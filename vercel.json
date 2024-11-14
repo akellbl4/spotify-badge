@@ -1,4 +1,6 @@
 {
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm build --watch",
 	"redirects": [
 		{
 			"source": "/",

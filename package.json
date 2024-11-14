@@ -2,12 +2,12 @@
   "name": "spotify-badge",
   "version": "1.1.0",
   "license": "MIT",
+  "packageManager": "pnpm@9.13.0",
   "engines": {
-    "node": "20.x",
-    "pnpm": "9.x"
+    "node": "20.x"
   },
   "scripts": {
-    "dev": "nodemon",
+    "build": "swc src -d .vercel/out --strip-leading-paths",
     "start": "vercel dev",
     "type-check": "tsc --noEmit",
     "format": "prettier --write '{**/*.{ts,json},.prettierrc}'"
@@ -18,22 +18,13 @@
     "preact-render-to-string": "^6.5.11"
   },
   "devDependencies": {
+    "@swc/cli": "^0.5.0",
+    "@swc/core": "^1.9.2",
     "@types/node": "^20.17.6",
     "@types/spotify-api": "^0.0.25",
     "@vercel/node": "^3.2.24",
-    "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
     "vercel": "^39.0.0"
-  },
-  "nodemonConfig": {
-    "ext": "ts",
-    "exec": "vercel dev",
-    "watch": [
-      "api/*",
-      "components/*",
-      "lib/*",
-      "consts.ts"
-    ]
   }
 }
