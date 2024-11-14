@@ -4,8 +4,9 @@
     "module": "NodeNext",
     "moduleResolution": "nodenext",
     "target": "es2020",
-    "jsx": "react",
+    "jsx": "preserve",
     "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true
