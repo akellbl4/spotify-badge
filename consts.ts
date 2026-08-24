@@ -4,6 +4,7 @@ const {
 	SPOTIFY_REFRESH_TOKEN,
 	API_CORS_HOST,
 	VERCEL_URL,
+	VERCEL_PROJECT_PRODUCTION_URL,
 } = process.env;
 
 Object.entries({
@@ -23,4 +24,4 @@ export const REFRESH_TOKEN = SPOTIFY_REFRESH_TOKEN ?? "";
 export const CORS_HOST = API_CORS_HOST ?? "*";
 export const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 export const NOW_PLAYING_ENDPOINT = "https://api.spotify.com/v1/me/player/currently-playing";
-export { VERCEL_URL };
+export { VERCEL_URL, VERCEL_PROJECT_PRODUCTION_URL };

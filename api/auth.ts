@@ -2,14 +2,16 @@ import { VercelRequest, VercelResponse } from '@vercel/node'
 import fetch from 'isomorphic-unfetch'
 import { render } from 'preact-render-to-string'
 
-import { CLIENT_ID, TOKEN_ENDPOINT, VERCEL_URL } from '../consts'
+import { CLIENT_ID, TOKEN_ENDPOINT, VERCEL_URL, VERCEL_PROJECT_PRODUCTION_URL } from '../consts'
 import { basic } from '../lib/spotify'
 import RefreshToken from '../components/RefreshToken'
 
 const REDIRECT_URI =
-	typeof VERCEL_URL === 'string'
-		? `https://${VERCEL_URL}/api/auth`
-		: 'http://localhost:3000/api/auth'
+	typeof VERCEL_PROJECT_PRODUCTION_URL === 'string'
+		? `https://${VERCEL_PROJECT_PRODUCTION_URL}/api/auth`
+		: typeof VERCEL_URL === 'string'
+			? `https://${VERCEL_URL}/api/auth`
+			: 'http://localhost:3000/api/auth'
 
 export default async function spotifyAuth(req: VercelRequest, res: VercelResponse) {
 	if (!req.query.code) {

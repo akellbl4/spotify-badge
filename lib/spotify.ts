@@ -34,9 +34,14 @@ async function getAccessToken() {
 		body: payload.toString(),
 	})
 
-	const { access_token } = await res.json()
+	const data = await res.json()
 
-	return access_token
+	if (!res.ok || !data.access_token) {
+		console.error(`Spotify token refresh failed (${res.status}):`, data)
+		return null
+	}
+
+	return data.access_token
 }
 
 function formatTrackInfo(trackInfo: SpotifyApi.CurrentlyPlayingResponse): TrackInfo | null {
@@ -63,6 +68,11 @@ function formatTrackInfo(trackInfo: SpotifyApi.CurrentlyPlayingResponse): TrackI
 
 async function getCurrentTrack(): Promise<null | TrackInfo> {
 	const token = await getAccessToken()
+
+	if (!token) {
+		return null
+	}
+
 	const res = await fetch(NOW_PLAYING_ENDPOINT, {
 		headers: {
 			'Authorization': `Bearer ${token}`,
@@ -70,7 +80,12 @@ async function getCurrentTrack(): Promise<null | TrackInfo> {
 		},
 	})
 
+	if (res.status === 204) {
+		return null
+	}
+
 	if (res.status !== 200) {
+		console.error(`Spotify now-playing request failed (${res.status}):`, await res.text())
 		return null
 	}
 
